@@ -10,9 +10,21 @@ class CodelabList extends PolymerElement {
    * When the <form> loads, the default level is automatically selected.
    */
   @observable Codelab newCodelab = new Codelab();
+  @observable List<Codelab> codelabs = toObservable([]);
   String get defaultLevel => Codelab.LEVELS[1];
   
   CodelabList.created() : super.created() {
     newCodelab.level = defaultLevel;
+  }
+  
+  resetForm(){
+    newCodelab = new Codelab();
+    newCodelab.level = defaultLevel;
+  }
+  
+  addCodelab(Event e, var detail, Node sender){
+    e.preventDefault();
+    codelabs.add(detail['codelab']);
+    resetForm();
   }
 }

@@ -47,4 +47,15 @@ class CodelabFormElement extends PolymerElement {
     descriptionErrorMessage = '';
     return true;
   }
+  
+  /**
+   * Call the codelab validators. If the code lab object validates, validateCodelab() fires a custom event, passing the validated code lab objects as data
+   * It is the reponsibility of <codelab-form>'s parent element to register a listener that adds the new code lab to <codelab-list>.
+   */
+  validateCodelab(Event event, Object detail, Node sender) {
+    event.preventDefault();
+    if(validateTitle() && validateDescription()) {
+      dispatchEvent(new CustomEvent('codelabvalidated', detail: {'codelab': codelab}));
+    }
+  }
 }

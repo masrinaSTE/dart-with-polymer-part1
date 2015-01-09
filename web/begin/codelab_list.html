@@ -23,8 +23,13 @@
         transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
       }
     </style>
-    <div>
+    <div on-codelabvalidated="{{addCodelab}}">
       <codelab-form codelab="{{newCodelab}}"></codelab-form>
+    </div>
+    <div>
+      <template repeat="{{codelab in codelabs}}">
+        <codelab-element codelab="{{codelab}}"></codelab-element>
+      </template>
     </div>
   </template>
   <script type="application/dart" src="codelab_list.dart"></script>

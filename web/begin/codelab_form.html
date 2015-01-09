@@ -71,7 +71,7 @@
         transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
       }
     </style>
-    <form>
+    <form on-submit="{{validateCodelab}}">
       <div class="field">
         <textarea placeholder="Add title" value="{{codelab.title}}" on-keyup="{{validateTitle}}"></textarea>
         <div>

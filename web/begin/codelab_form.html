@@ -73,15 +73,17 @@
     </style>
     <form>
       <div class="field">
-        <textarea placeholder="Add title" value="{{codelab.title}}"></textarea>
+        <textarea placeholder="Add title" value="{{codelab.title}}" on-keyup="{{validateTitle}}"></textarea>
         <div>
           <span class="chars-left">{{maxTitleLength - codelab.title.length}}</span>
+          <span class="error" hidden?="{{titleErrorMessage.isEmpty}}">{{titleErrorMessage}}</span>
         </div>
       </div>
       <div class="field">
-        <textarea placeholder="Add description" value="{{codelab.description}}"></textarea>
+        <textarea placeholder="Add description" value="{{codelab.description}}" on-keyup="{{validateDescription}}"></textarea>
         <div>
           <span class="chars-left">{{maxDescriptionLength - codelab.description.length}}</span>
+          <span class="error" hidden?="{{descriptionErrorMessage.isEmpty}}">{{descriptionErrorMessage}}</span>
         </div>
       </div>
       <div class="field">

@@ -26,7 +26,7 @@
     <div on-codelabvalidated="{{addCodelab}}" on-formnotneeded="{{resetForm}}">
       <codelab-form codelab="{{newCodelab}}"></codelab-form>
     </div>
-    <div>
+    <div on-deletecodelab="{{deleteCodelab}}">
       <template repeat="{{codelab in codelabs}}">
         <codelab-element codelab="{{codelab}}"></codelab-element>
       </template>

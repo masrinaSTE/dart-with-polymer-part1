@@ -58,4 +58,15 @@ class CodelabFormElement extends PolymerElement {
       dispatchEvent(new CustomEvent('codelabvalidated', detail: {'codelab': codelab}));
     }
   }
+  
+  /**
+   * Dispatch a formnotneeded custom event when <codelab-form> is no longer being used. 
+   * It is up to <codelab-form>'s parent element to decide how to handle the custom event.
+   */
+  cancelForm(Event event, Object detail, Node sender) {
+    event.preventDefault();
+    titleErrorMessage = '';
+    descriptionErrorMessage = '';
+    dispatchEvent(new CustomEvent('formnotneeded'));
+  }
 }

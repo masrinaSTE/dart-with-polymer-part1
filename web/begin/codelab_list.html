@@ -23,7 +23,7 @@
         transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
       }
     </style>
-    <div on-codelabvalidated="{{addCodelab}}">
+    <div on-codelabvalidated="{{addCodelab}}" on-formnotneeded="{{resetForm}}">
       <codelab-form codelab="{{newCodelab}}"></codelab-form>
     </div>
     <div>
